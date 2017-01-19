@@ -1,0 +1,107 @@
+<div class="container">
+
+<div [hidden]="submitted">
+  <form (ngSubmit)="addPatient()" #patientForm="ngForm" class="form-horizontal">
+    <div>
+      <strong>Patient Form</strong>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5">
+        <input type="text" class="form-control" placeholder="First Name" id="firstname" required
+            [(ngModel)]="patientModel.FirstName" name="firstName" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+              class="alert alert-danger">
+            First Name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5">
+        <input type="text" class="form-control" placeholder="Last Name" id="lastname" required
+            [(ngModel)]="patientModel.LastName" name="lastName" #lastName="ngModel">
+          <div [hidden]="lastName.valid || lastName.pristine"
+              class="alert alert-danger">
+            Last Name is required
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5">
+        <input type="number" class="form-control" placeholder="Age" id="age" required
+            [(ngModel)]="patientModel.Age" name="age" #age="ngModel">
+          <div [hidden]="age.valid || age.pristine"
+              class="alert alert-danger">
+            Age is required
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5">
+        <input type="text" class="form-control" placeholder="Social Security Number" id="ssn" required
+            [(ngModel)]="patientModel.SocialSecurityNumber" name="ssn" #ssnum="ngModel">
+          <div [hidden]="ssnum.valid || ssnum.pristine"
+              class="alert alert-danger">
+            Social Security Number is required. 
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5">
+        <input type="text" class="form-control" placeholder="Doctor" id="doctor" required
+            [(ngModel)]="patientModel.Doctor" name="doctor" #doctor="ngModel">
+          <div [hidden]="doctor.valid || doctor.pristine"
+              class="alert alert-danger">
+            Doctor is required
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2">
+        <button type="submit" class="btn btn-default" [disabled]="!patientForm.form.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <div *ngIf="patient">
+    <h3>Patient is added. You may add Radiograph data for this patient.</h3>
+    <div class="row">
+      <div class="col-xs-3"><strong>Id</strong></div>
+      <div class="col-xs-9  pull-left">{{ patient.Id }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><strong>First Name</strong></div>
+      <div class="col-xs-9  pull-left">{{ patient.FirstName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><strong>Last Name</strong></div>
+      <div class="col-xs-9 pull-left">{{ patient.LastName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><strong>Age</strong></div>
+      <div class="col-xs-9 pull-left">{{ patient.Age }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><strong>Social Security Number</strong></div>
+      <div class="col-xs-9 pull-left">{{ patient.SocialSecurityNumber }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><strong>Doctor</strong></div>
+      <div class="col-xs-9 pull-left">{{ patient.Doctor }}</div>
+    </div>
+  </div>
+   <div>
+        <radiographform></radiographform>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+    <button class="btn btn-default" (click)="backToHome()">Back</button>
+</div>
+
+
+
+
+

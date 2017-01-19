@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <form class="well">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search patient. Enter patient's Social Security Number (yyyymmdd)..." [(ngModel)]="ssnumber" name="ssnumber" (keyup)="searchPatient()">
+                <br>
+                <div class="btn-toolbar" role="group" aria-label="...">
+                    <a href="/addPatient" class="btn btn-primary btn-sm" role="button">Add Patient</a>
+                    <button type="button"class="btn btn-primary btn-sm" (click)="patientList()">Patients</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div *ngIf="patients">
+    <div *ngFor="let patient of patients">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{patient.FirstName}} {{patient.LastName}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-5">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-info btn-sm"><a routerLink="/patient/{{patient.Id}}"> View Patient Details</a></button>
+                            </div>
+                    </div>
+                    <div class="col-md-7">
+                        <p><strong>Doctor: </strong>{{patient.Doctor}}</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
