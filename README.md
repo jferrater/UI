@@ -1,5 +1,10 @@
 # UI
-UI for radiograph-service app
+<p>UI for radiograph-service app. This uses AngularJS 2 Web Framework.</p>
+
+<h4>Required Requirements</h4>
+<lu>
+  <li>nodejs and npm</li>
+<lu>
 
 <h4> Testing the project</h4>
 <lu>
