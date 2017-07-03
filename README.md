@@ -5,7 +5,7 @@
 <lu>
   <li>nodejs and npm</li>
 <lu>
-
+<div>Follow this link to install current release of nodejs: https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/#</div>
 <h4> Testing the project</h4>
 <lu>
     <li>Clone radiograph-service: <strong>$ git clone https://github.com/jferrater/Technical-Assignment.git</strong></li>
